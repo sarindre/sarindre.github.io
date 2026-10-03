@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>sarindre | Projects</title>
+<meta name="description" content="Projects by sarindre: web apps, games, and data work.">
+<meta name="theme-color" content="#0f1b2d">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📼</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;800;900&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f1b2d;
+    --ink-2: #16273f;
+    --paper: #eef1f6;
+    --muted: #93a3bb;
+    --ticket: #f2c230;
+    --scream: #d6404a;
+    --lab: #5aa0e6;
+    --line: rgba(238, 241, 246, 0.14);
+    --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    --body: "Newsreader", Georgia, "Times New Roman", serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--body);
+    font-size: 1.125rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--ticket); outline-offset: 3px; border-radius: 2px; }
+
+  .wrap { width: min(1080px, 100% - 2.5rem); margin-inline: auto; }
+
+  /* Top bar */
+  header.bar {
+    display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+    padding-block: 1.25rem;
+    font-family: var(--display); font-weight: 500; font-size: 0.95rem;
+  }
+  header.bar nav { display: flex; gap: 1.5rem; }
+  header.bar a { text-decoration: none; color: var(--muted); }
+  header.bar a:hover { color: var(--paper); }
+  header.bar .mark { color: var(--paper); font-weight: 800; }
+
+  /* Hero */
+  .hero { padding-block: clamp(3rem, 9vw, 7rem) clamp(3rem, 7vw, 5rem); }
+  .hero h1 {
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: clamp(3.4rem, 12.5vw, 9.5rem);
+    line-height: 0.88;
+    letter-spacing: -0.035em;
+  }
+  .hero h1 span { display: block; }
+  .hero h1 .second { color: var(--ticket); }
+  .hero .lede {
+    max-width: 34rem;
+    margin-top: 2rem;
+    font-size: clamp(1.2rem, 2.4vw, 1.45rem);
+    color: #cfd8e6;
+  }
+  .hero .links { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+  .btn {
+    font-family: var(--display); font-weight: 800; font-size: 0.98rem;
+    text-decoration: none;
+    padding: 0.75rem 1.25rem;
+    border: 2px solid var(--paper);
+    border-radius: 999px;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .btn:hover { background: var(--paper); color: var(--ink); }
+  .btn.primary { background: var(--ticket); border-color: var(--ticket); color: var(--ink); }
+  .btn.primary:hover { background: var(--paper); border-color: var(--paper); }
+
+  /* Shelf of projects */
+  section { padding-block: clamp(2.5rem, 6vw, 4.5rem); }
+  h2 {
+    font-family: var(--display); font-weight: 800;
+    font-size: clamp(1.9rem, 4.5vw, 3rem);
+    letter-spacing: -0.02em; line-height: 1.05;
+  }
+  .section-note { color: var(--muted); margin-top: 0.6rem; max-width: 36rem; }
+
+  .shelf { margin-top: 2.5rem; display: grid; gap: 1.5rem; }
+  .case {
+    --accent: var(--ticket);
+    display: grid;
+    grid-template-columns: 3.25rem 1fr;
+    background: var(--ink-2);
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+  }
+  .case .spine {
+    background: var(--accent);
+    color: var(--ink);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--display); font-weight: 900; font-size: 1.05rem;
+    letter-spacing: 0.02em;
+    writing-mode: vertical-rl; transform: rotate(180deg);
+    padding-block: 1rem;
+    white-space: nowrap;
+  }
+  .case .body { padding: clamp(1.25rem, 3vw, 2rem); }
+  .case h3 {
+    font-family: var(--display); font-weight: 800;
+    font-size: clamp(1.5rem, 3.4vw, 2.1rem); letter-spacing: -0.01em; line-height: 1.1;
+  }
+  .case p { margin-top: 0.75rem; max-width: 40rem; color: #d5deeb; }
+  .case ul { margin-top: 1rem; padding-left: 1.2rem; max-width: 40rem; color: #d5deeb; }
+  .case li { margin-top: 0.3rem; }
+  .case li::marker { color: var(--accent); }
+  .stack { margin-top: 1.25rem; display: flex; flex-wrap: wrap; gap: 0.5rem; list-style: none; padding: 0; }
+  .stack li {
+    margin: 0;
+    font-family: var(--display); font-weight: 500; font-size: 0.85rem;
+    padding: 0.2rem 0.7rem;
+    border: 1px solid var(--line); border-radius: 999px; color: var(--paper);
+  }
+  .case .actions { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 1.25rem; font-family: var(--display); font-weight: 800; }
+  .case .actions a { color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+  .case .actions a:hover { color: var(--paper); }
+  .case .actions .private { color: var(--muted); font-weight: 500; font-size: 0.95rem; }
+
+  .case.scream { --accent: var(--scream); }
+  .case.lab { --accent: var(--lab); }
+  .case.cipher { --accent: #4fd1a5; }
+  .case.hr { --accent: #a99cf5; }
+
+
+  /* Experience, education, community */
+  .job { display: grid; grid-template-columns: 1fr; gap: 0.5rem 2.5rem; padding-block: 1.75rem; border-top: 1px solid var(--line); }
+  .job:last-child { border-bottom: 1px solid var(--line); }
+  .job .who h3 { font-family: var(--display); font-weight: 800; font-size: 1.35rem; letter-spacing: -0.01em; line-height: 1.15; }
+  .job .who p { color: var(--muted); font-size: 1rem; margin-top: 0.2rem; }
+  .role + .role { margin-top: 1.5rem; }
+  .role h4 { font-family: var(--display); font-weight: 800; font-size: 1.05rem; }
+  .role .when { color: var(--muted); font-size: 0.98rem; }
+  .role ul { margin-top: 0.6rem; padding-left: 1.2rem; max-width: 40rem; color: #d5deeb; }
+  .role li { margin-top: 0.3rem; }
+  .role li::marker { color: var(--ticket); }
+  .plain { list-style: none; border-top: 1px solid var(--line); margin-top: 2rem; }
+  .plain li { display: grid; grid-template-columns: 1fr; gap: 0.1rem; padding-block: 0.9rem; border-bottom: 1px solid var(--line); }
+  .plain b { font-family: var(--display); font-weight: 800; }
+  .plain span { color: #d5deeb; }
+  .plain em { font-style: normal; color: var(--muted); font-size: 0.98rem; }
+  @media (min-width: 860px) {
+    .job { grid-template-columns: 15rem 1fr; }
+    .plain li { grid-template-columns: 1fr 1.2fr auto; gap: 1.5rem; align-items: baseline; }
+  }
+
+  /* About */
+  .about {
+    display: grid; gap: 2rem;
+    grid-template-columns: 1fr;
+  }
+  .about p { max-width: 38rem; }
+  .about p + p { margin-top: 1rem; }
+  .facts { list-style: none; border-top: 1px solid var(--line); }
+  .facts li {
+    display: grid; grid-template-columns: 8rem 1fr; gap: 1rem;
+    padding-block: 0.9rem; border-bottom: 1px solid var(--line);
+  }
+  .facts b { font-family: var(--display); font-weight: 800; }
+  .facts span { color: #d5deeb; }
+
+  @media (min-width: 860px) {
+    .about { grid-template-columns: 1.1fr 1fr; gap: 4rem; align-items: start; }
+  }
+
+  /* Contact */
+  .contact { border-top: 1px solid var(--line); }
+  .contact p { margin-top: 0.75rem; max-width: 34rem; color: #d5deeb; }
+  .contact .links { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+  footer { padding-block: 2rem 3rem; color: var(--muted); font-size: 0.95rem; }
+
+  @media (max-width: 560px) {
+    header.bar nav { gap: 1rem; }
+    .facts li { grid-template-columns: 1fr; gap: 0.1rem; }
+    .case { grid-template-columns: 2.5rem 1fr; }
+    .case .spine { font-size: 0.9rem; }
+  }
+
+  /* One deliberate motion: the hero headline slides in once */
+  @media (prefers-reduced-motion: no-preference) {
+    .hero h1 span { animation: rewind 0.7s cubic-bezier(.2,.8,.2,1) both; }
+    .hero h1 .second { animation-delay: 0.12s; }
+    @keyframes rewind { from { transform: translateX(-2.5rem); opacity: 0; } to { transform: none; opacity: 1; } }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="bar">
+    <a class="mark" href="#top">sarindre</a>
+    <nav aria-label="Primary">
+      <a href="#projects">Projects</a>
+      <a href="#contact">GitHub</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <div class="hero">
+      <h1><span class="second">sarindre</span></h1>
+      <p class="lede">I build web apps, games, and data projects. Two of them you can open and use right now.</p>
+      <div class="links">
+        <a class="btn primary" href="#projects">See the projects</a>
+        <a class="btn" href="https://github.com/sarindre">GitHub profile</a>
+      </div>
+    </div>
+
+    <section id="projects" aria-labelledby="projects-h">
+      <h2 id="projects-h">Projects</h2>
+      <p class="section-note">Horror Hub and the Blockbuster App run in a browser and their code is public. WorkforceOS and y2k.exe are still in private repositories.</p>
+
+      <div class="shelf">
+
+        <article class="case scream">
+          <div class="spine" aria-hidden="true">Horror Hub</div>
+          <div class="body">
+            <h3>Horror Hub</h3>
+            <p>A horror movie library and discovery app that decides what to watch tonight. It learns your taste from your ratings, explains every suggestion, and keeps content warnings up front. Everything is stored in your own browser, so there is no account to make and no server holding your data.</p>
+            <ul>
+              <li><strong>Tonight:</strong> one pick for the evening with the reasons, scare level, and content warnings, plus a reroll that never repeats. A 60-second taste quiz teaches it how scary is too scary.</li>
+              <li><strong>Group night:</strong> add everyone watching with their scare limits and it finds films that suit the whole room, ranked by how the least-happy person feels.</li>
+              <li><strong>Ask Horror Hub:</strong> describe what you want in plain words, such as "gentle 80s slashers I haven't seen, no gore," and it searches your library and shows how it understood you.</li>
+              <li>Marathon planner that fits a themed lineup to your time budget, shelves you can share, challenges like 30 Days of Horror, and a Horror Wrapped year in review.</li>
+              <li>Imports your history from Letterboxd or IMDb and exports back to Letterboxd's format.</li>
+              <li>Installs as an app, works offline, and also ships as a desktop app for Windows, macOS, and Linux. Lint and tests run on every push.</li>
+            </ul>
+            <ul class="stack" aria-label="Tech used">
+              <li>React 19</li><li>Vite</li><li>Tailwind CSS</li><li>Recharts</li><li>TMDb API</li><li>PWA</li><li>Electron</li><li>GitHub Actions</li>
+            </ul>
+            <div class="actions">
+              <a href="https://sarindre.github.io/horrorhub/">Open the live app</a>
+              <a href="https://sarindre.itch.io/horrorhub">itch.io page</a>
+              <a href="https://github.com/sarindre/horrorhub">View the code</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="case">
+          <div class="spine" aria-hidden="true">Blockbuster</div>
+          <div class="body">
+            <h3>Blockbuster App</h3>
+            <p>An installable web app that catalogs my movie collection in the style of a 1990s video rental store. It covers physical discs, stored in a binder by page and slot, and digital purchases in one browsable list.</p>
+            <ul>
+              <li>Filters by genre and by source (disc or digital), plus search across titles and series names.</li>
+              <li>Series badges on each title, such as "Twilight #2," so franchises sort in release order.</li>
+              <li>A separate manage page for editing the collection, and offline support through a service worker.</li>
+            </ul>
+            <ul class="stack" aria-label="Tech used">
+              <li>HTML</li><li>CSS</li><li>JavaScript</li><li>PWA</li><li>Service worker</li>
+            </ul>
+            <div class="actions">
+              <a href="https://sarindre.github.io/Blockbuster-App/">Open the live app</a>
+              <a href="https://github.com/sarindre/Blockbuster-App">View the code</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="case hr">
+          <div class="spine" aria-hidden="true">WorkforceOS</div>
+          <div class="body">
+            <h3>WorkforceOS</h3>
+            <p>A web app that runs a company's HR work in one place. Small and mid-sized companies often split this across spreadsheets, email threads, and separate paid tools. WorkforceOS keeps it in one system, so a dashboard can show the whole picture: headcount, who is leaving and why, and how the workforce changes over time.</p>
+            <ul>
+              <li>Covers the employee list and org chart, hiring requests and candidates, performance reviews, pay and raises, time off, onboarding, surveys, training, and recognition.</li>
+              <li>Shows each person only what their role allows. HR and executives see the whole company, Finance approves budgets and raises, and a manager sees only their own team.</li>
+              <li>Follows real approval flows. A manager's request to hire an engineer moves through HR, Finance, and an executive, then candidates are tracked through to a signed offer.</li>
+              <li>Includes an optional AI feature that drafts a first version of a performance review for the manager to edit.</li>
+              <li>Ships with a sample company of about 5,000 fictional employees and years of history, so the whole system can be tried without real data. Automated tests check the code on every change.</li>
+            </ul>
+            <p><strong>Status:</strong> in development and not ready for a real company's sensitive data yet. The missing pieces are a setup wizard, spreadsheet import of an existing employee list, secure document storage, and a live-server setup. The next step is finishing those and running a small pilot.</p>
+            <ul class="stack" aria-label="Tech used">
+              <li>Python</li><li>Django</li><li>HTMX</li><li>Tailwind CSS</li><li>Chart.js</li><li>PostgreSQL</li><li>pytest</li><li>GitHub Actions</li>
+            </ul>
+            <div class="actions">
+              <span class="private">Private repository. Happy to walk through it on request.</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="case cipher">
+          <div class="spine" aria-hidden="true">y2k.exe</div>
+          <div class="body">
+            <h3>y2k.exe</h3>
+            <p>A narrative horror game that runs in the browser and looks like a Windows desktop from the year 2000. You fill out a new-student questionnaire that builds your character, then live out freshman year through a working instant messenger while a slow mystery called Cipher Seven builds underneath. The horror comes from small wrong details, not jump scares.</p>
+            <ul>
+              <li>A branching story engine with online and offline scenes, flags, and stats that change later dialogue.</li>
+              <li>Eight cliques (goth, gamer, skater, jock, theater, loner, popular, band), each with a fully built and tested first chapter.</li>
+              <li>In-game apps styled after the era: an AIM-style messenger, a Napster-style file sharing app, a Yahoo-style portal, and a GeoCities-style homepage builder.</li>
+              <li>Runs from one static HTML file with no build step and no dependencies. Story content is written first in design docs, then transcribed into the engine.</li>
+            </ul>
+            <ul class="stack" aria-label="Tech used">
+              <li>JavaScript</li><li>HTML</li><li>CSS</li><li>Game design</li><li>Interactive fiction</li>
+            </ul>
+            <div class="actions">
+              <span class="private">In development. Private repository for now.</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="case lab">
+          <div class="spine" aria-hidden="true">CMPINF 2100</div>
+          <div class="body">
+            <h3>CMPINF 2100 coursework</h3>
+            <p>Seven Jupyter notebooks of Python homework from a data science course, kept in one repository so the work can be read from start to finish.</p>
+            <ul class="stack" aria-label="Tech used">
+              <li>Python</li><li>Jupyter</li><li>Data analysis</li>
+            </ul>
+            <div class="actions">
+              <a href="https://github.com/sarindre/CMPINF2100">Read the notebooks</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="contact" class="contact" aria-labelledby="contact-h">
+      <h2 id="contact-h">Find me</h2>
+      <p>All of my public code is on GitHub, and email is the quickest way to reach me.</p>
+      <div class="links">
+        <a class="btn primary" href="mailto:sarindre@gmail.com">sarindre@gmail.com</a>
+        <a class="btn" href="https://github.com/sarindre">github.com/sarindre</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year">2026</span> sarindre</p>
+  </footer>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
